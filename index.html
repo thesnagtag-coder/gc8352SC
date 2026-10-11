@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>The Gas &amp; Carbon Monoxide Check - Beneath the Surface by The Snag Tag</title>
+<meta name="description" content="8 real gas and carbon monoxide checks for home buyers or home owners: CO alarms, appliance warning signs, servicing and safe habits. Free, 5 minutes, no signup - from The Snag Tag.">
+<style>
+:root{
+  --accent:#374151; --accent-dark:#2D5B9A; --accent-rgb:55,65,81;
+}
+body[data-mode="light"], body{
+  --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#E8F0FA; --tile:#F7FAFD;
+  --ink:#16243F; --ink-mid:#44546F; --ink-soft:#6B7A93; --line:#C9D6E8;
+  --navy:#16243F; --navy-2:#1E3154;
+  --safe:#2E7D4F; --safe-bg:#E7F5EC;
+  --flag:#A15C00; --flag-bg:#FFF3E0;
+  --grid:rgba(45,91,154,.06);
+}
+body[data-mode="dark"]{
+  --bg:#0F1A2C; --surface:#15233A; --surface-2:#1C3150; --tile:#122036;
+  --ink:#E6EEF9; --ink-mid:#B8C6DB; --ink-soft:#8C9BB2; --line:#2F4466;
+  --navy:#0B1424; --navy-2:#0F1A2C;
+  --safe:#81C995; --safe-bg:#1B3326;
+  --flag:#FFB74D; --flag-bg:#3A2C17;
+  --grid:rgba(140,180,230,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  transition:background .25s,color .25s;
+}
+h1,h2,h3,h4{margin:0}
+.mono{font-family:ui-monospace,"SFMono-Regular","Cascadia Mono","Roboto Mono",Consolas,monospace}
+::selection{background:rgba(var(--accent-rgb),.35)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+.topbar{
+  background:var(--navy); color:#fff; border-bottom:3px solid var(--accent);
+  padding:12px 18px; display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:20;
+}
+.topbar-left{display:flex; align-items:center; gap:10px}
+.topbar-logo{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+.topbar-logo svg{width:18px;height:18px}
+.topbar-name{font-weight:700; font-size:16px; letter-spacing:-.2px}
+.topbar-name span{color:#D1D5DB}
+.topbar-sub{font-size:11px; color:rgba(255,255,255,.65); font-weight:500; letter-spacing:.06em; text-transform:uppercase}
+.topbar-tools{display:flex; gap:6px}
+.tool-btn{background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:6px; padding:7px 10px; font-size:13px; cursor:pointer; font-weight:600; display:flex; align-items:center; gap:5px}
+.tool-btn:hover{background:rgba(255,255,255,.17)}
+
+.progress-wrap{position:sticky; top:59px; z-index:19; background:var(--bg); padding:10px 18px 8px; border-bottom:1px solid var(--line)}
+.progress-track{height:6px; background:var(--surface-2); border-radius:99px; overflow:hidden; max-width:640px; margin:0 auto}
+.progress-fill{height:100%; background:linear-gradient(90deg,var(--accent),var(--accent-dark)); border-radius:99px; transition:width .35s ease; width:0%}
+.progress-label{max-width:640px; margin:6px auto 0; font-size:12px; color:var(--ink-soft); font-weight:600; display:flex; justify-content:space-between}
+
+main{max-width:640px; margin:0 auto; padding:28px 20px 90px}
+.screen{display:none; animation:fade .35s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+
+.hook-badge{display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); color:var(--accent-dark); font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:99px; margin-bottom:18px}
+body[data-mode="dark"] .hook-badge{color:#8CB4E6}
+.hook h1{font-size:clamp(1.7rem,6vw,2.3rem); line-height:1.15; margin-bottom:14px}
+.hook h1 em{font-style:normal; color:var(--accent)}
+.hook p.lede{font-size:1.05rem; color:var(--ink-mid); margin-bottom:22px}
+.hook-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:26px}
+.hook-fact{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 10px; text-align:center}
+.hook-fact .n{font-size:1.4rem; font-weight:700; color:var(--accent)}
+.hook-fact .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border-radius:10px; padding:15px 22px; font-size:16px; font-weight:700; cursor:pointer;
+  border:none; width:100%; text-align:center; text-decoration:none;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:#fff; box-shadow:0 4px 14px rgba(var(--accent-rgb),.3)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{background:var(--surface); color:var(--ink); border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent)}
+.hint-row{display:flex; align-items:center; gap:8px; margin-top:14px; font-size:13px; color:var(--ink-soft); justify-content:center; text-align:center}
+
+.choose-card{background:var(--surface); border:1.5px solid var(--line); border-radius:12px; padding:18px 18px; margin-bottom:12px; cursor:pointer; transition:border-color .15s}
+.choose-card:hover{border-color:var(--accent)}
+.choose-card .cc-label{font-size:1.1rem; font-weight:700; margin-bottom:3px}
+.choose-card .cc-range{font-size:13px; color:var(--ink-soft); font-weight:600}
+
+.zone-chip{display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); color:var(--ink-mid); font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; padding:5px 11px; border-radius:99px; margin-bottom:16px}
+.zone-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+.check-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px 22px; box-shadow:0 2px 12px rgba(22,36,63,.06)}
+.check-card .verb{font-size:12.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px}
+.check-card h2{font-size:1.35rem; line-height:1.3; margin-bottom:10px}
+.check-card .prompt{font-size:1rem; color:var(--ink-mid); margin-bottom:20px}
+.check-card .prompt strong{color:var(--ink)}
+.opts{display:flex; flex-direction:column; gap:10px; margin-bottom:4px}
+.opt{
+  display:flex; align-items:center; gap:12px; background:var(--tile); border:1.5px solid var(--line);
+  border-radius:10px; padding:14px 16px; cursor:pointer; font-size:15px; font-weight:600; color:var(--ink);
+  transition:border-color .15s, background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ic{width:22px;height:22px;border-radius:50%;border:2px solid var(--line); flex:none; display:flex;align-items:center;justify-content:center; font-size:13px; font-weight:800; color:transparent}
+.opt.selected{border-color:var(--accent-dark)}
+.opt.selected.safe{background:var(--safe-bg); border-color:var(--safe)}
+.opt.selected.safe .ic{border-color:var(--safe); color:var(--safe)}
+.opt.selected.flag{background:var(--flag-bg); border-color:var(--flag)}
+.opt.selected.flag .ic{border-color:var(--flag); color:var(--flag)}
+.change-hint{font-size:12.5px; color:var(--ink-soft); margin:10px 0 0}
+
+.reveal{margin-top:18px; border-radius:10px; padding:16px 18px; border-left:4px solid var(--accent-dark); background:var(--surface-2); display:none}
+.reveal.show{display:block; animation:fade .3s ease}
+.reveal .rk{font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent-dark); margin-bottom:6px}
+.reveal.good{border-left-color:var(--safe); background:var(--safe-bg)}
+.reveal.good .rk{color:var(--safe)}
+.reveal.bad{border-left-color:var(--flag); background:var(--flag-bg)}
+.reveal.bad .rk{color:var(--flag)}
+.reveal p{margin:0 0 8px; font-size:14.5px; color:var(--ink-mid)}
+.reveal p:last-child{margin-bottom:0}
+.reveal .src{font-size:12.5px; color:var(--ink-soft); font-style:italic}
+
+.nav-row{display:flex; gap:10px; margin-top:22px}
+.nav-row .btn{flex:1}
+.nav-back{background:transparent; color:var(--ink-soft); border:none; font-size:13px; font-weight:600; cursor:pointer; padding:8px; margin-top:10px; width:100%; text-align:center}
+
+.result-head{text-align:center; margin-bottom:24px}
+.result-head .kicker{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft)}
+.result-head h1{font-size:1.8rem; margin:8px 0 4px}
+.result-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:22px 0 26px}
+.rstat{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 8px; text-align:center}
+.rstat .n{font-size:1.9rem; font-weight:700}
+.rstat.total .n{color:var(--ink)}
+.rstat.safe .n{color:var(--safe)}
+.rstat.flag .n{color:var(--flag)}
+.rstat .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px}
+
+.zone-bars{display:flex; flex-direction:column; gap:10px; margin-bottom:26px}
+.zbar-row{display:flex; align-items:center; gap:10px}
+.zbar-label{width:132px; flex:none; font-size:12.5px; font-weight:600; color:var(--ink-mid); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.zbar-track{flex:1; height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden}
+.zbar-fill{height:100%; border-radius:99px; background:var(--safe)}
+.zbar-fill.partial{background:var(--flag)}
+.zbar-count{width:38px; flex:none; text-align:right; font-size:12.5px; font-weight:700; color:var(--ink-soft)}
+
+.section-h{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin:26px 0 12px}
+.finding{display:flex; gap:12px; padding:13px 0; border-bottom:1px solid var(--line)}
+.finding:last-child{border-bottom:none}
+.finding .fic{width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.finding.flag .fic{background:var(--flag-bg); color:var(--flag)}
+.finding.safe .fic{background:var(--safe-bg); color:var(--safe)}
+.finding .ft{font-weight:700; font-size:14.5px; margin-bottom:2px}
+.finding .fd{font-size:13.5px; color:var(--ink-soft); line-height:1.5}
+
+.quickwin{background:var(--surface); border:1.5px solid var(--accent); border-radius:14px; padding:20px; margin:8px 0 26px}
+.quickwin .qk{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:8px}
+.quickwin h3{font-size:1.1rem; margin-bottom:8px}
+.quickwin p{font-size:14.5px; color:var(--ink-mid); margin:0}
+
+.bridge{background:var(--navy); border-top:3px solid var(--accent); color:#fff; border-radius:14px; padding:26px 22px; margin:10px 0 20px}
+.bridge .bk{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#D1D5DB}
+.bridge h3{font-size:1.4rem; margin:8px 0 12px; line-height:1.3}
+.bridge p{font-size:14.5px; color:rgba(255,255,255,.82); margin:0 0 14px}
+.bridge .still{background:rgba(255,255,255,.07); border-radius:10px; padding:14px 16px; margin:14px 0}
+.bridge .still h4{font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:rgba(255,255,255,.6); margin-bottom:8px}
+.bridge .still ul{margin:0; padding-left:18px; font-size:13.5px; color:rgba(255,255,255,.85)}
+.bridge .still li{margin-bottom:5px}
+.bridge .btn-primary{margin-top:6px}
+.bridge .note{font-size:11.5px; color:rgba(255,255,255,.5); margin-top:10px; text-align:center}
+
+.restart-row{text-align:center; margin-top:8px}
+.restart-row button{background:none; border:none; color:var(--ink-soft); font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer}
+
+.disclaimer{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:30px; padding-top:18px; border-top:1px solid var(--line); line-height:1.6}
+</style>
+</head>
+<body data-mode="light">
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 11c1.4 1.7 2.3 3 2.3 4.3a2.3 2.3 0 0 1-4.6 0c0-1.3.9-2.6 2.3-4.3z"/></svg></span>
+    <div>
+      <div class="topbar-name">Beneath the <span>Surface</span></div>
+      <div class="topbar-sub">by The Snag Tag &middot; Gas &amp; Carbon Monoxide Check</div>
+    </div>
+  </div>
+  <div class="topbar-tools">
+    <button class="tool-btn" id="modeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+  </div>
+</div>
+
+<div class="progress-wrap" id="progressWrap" style="display:none">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressText">Check 1</span><span id="progressPct">0%</span></div>
+</div>
+
+<main>
+
+  <section class="screen active" id="screen-hook">
+    <div class="hook">
+      <span class="hook-badge">🔍 For home buyers and home owners</span>
+      <h1>Can't see it. <em>Can check for it.</em></h1>
+      <p class="lede">Real checks, pulled from The Snag Tag's Beneath the Surface Gas &amp; Carbon Monoxide tool. Working CO alarms, yearly servicing, warning signs you can see. No signup, no scare tactics.</p>
+      <div class="hook-facts">
+        <div class="hook-fact"><div class="n">8</div><div class="t">real checks</div></div>
+        <div class="hook-fact"><div class="n">~5</div><div class="t">minutes</div></div>
+        <div class="hook-fact"><div class="n">Free</div><div class="t">to start</div></div>
+      </div>
+      <button class="btn btn-primary" id="startBtn" type="button">Start the Check &rarr;</button>
+      <div class="hint-row">Free. No account. Your answers stay on this device.</div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-choose">
+    <div class="hook">
+      <h1 style="font-size:1.6rem">Which fits you right now?</h1>
+      <p class="lede" style="margin-bottom:20px">This decides which real checks you'll see today. Pick the one that fits.</p>
+      <div class="choose-card" data-key="buyer"><div class="cc-label">I'm viewing or buying a home</div><div class="cc-range">Pre-Purchase checks</div></div>
+      <div class="choose-card" data-key="owner"><div class="cc-label">I live in or look after a home</div><div class="cc-range">Maintenance checks for owners, tenants and landlords</div></div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-check">
+    <span class="zone-chip"><span class="dot"></span><span id="chkZone">Zone</span></span>
+    <div class="check-card">
+      <div class="verb" id="chkVerb">Check</div>
+      <h2 id="chkTitle"></h2>
+      <p class="prompt" id="chkPrompt"></p>
+      <div class="opts" id="chkOpts"></div>
+      <p class="change-hint">Pick either one. You can change your answer any time before you move on.</p>
+      <div class="reveal" id="chkReveal">
+        <div class="rk" id="revealKicker">Here's what actually matters</div>
+        <p id="revealWhy"></p>
+        <p id="revealHow"></p>
+        <p class="src" id="revealSrc"></p>
+      </div>
+      <div class="nav-row" id="chkNavRow" style="display:none">
+        <button class="btn btn-primary" id="chkNextBtn" type="button">Next check &rarr;</button>
+      </div>
+    </div>
+    <button class="nav-back" id="chkBackBtn" type="button">&larr; back</button>
+    <button class="nav-back" id="chkChooseBtn" type="button" style="opacity:.65">Choose a different check</button>
+  </section>
+
+  <section class="screen" id="screen-result">
+    <div class="result-head">
+      <div class="kicker">Your Gas &amp; Carbon Monoxide Check</div>
+      <h1 id="resultHeadline">Here's what you found</h1>
+    </div>
+
+    <div class="result-stats">
+      <div class="rstat total"><div class="n" id="statTotal">0</div><div class="t">checked today</div></div>
+      <div class="rstat safe"><div class="n" id="statSafe">0</div><div class="t">already sorted</div></div>
+      <div class="rstat flag"><div class="n" id="statFlag">0</div><div class="t">need attention</div></div>
+    </div>
+
+    <div class="zone-bars" id="zoneBars"></div>
+
+    <div class="section-h">What to check today</div>
+    <div id="findingsFlag"></div>
+
+    <div class="section-h">Already sorted</div>
+    <div id="findingsSafe"></div>
+
+    <div class="quickwin" id="quickwin">
+      <div class="qk">&#9889; Quick win - do this now, free</div>
+      <h3 id="qwTitle"></h3>
+      <p id="qwBody"></p>
+    </div>
+
+    <div class="bridge">
+      <div class="bk">The complete system</div>
+      <h3 id="bridgeHeadline">You found the gaps. Here's what closes them.</h3>
+      <p id="bridgeBody"></p>
+      <div class="still" id="bridgeStill">
+        <h4>Today's check opened part of the picture. Here's what's still closed:</h4>
+        <ul id="bridgeStillList"></ul>
+      </div>
+      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Get the complete tool &rarr;</a>
+      <div class="note">One-time purchase. Works offline, on any device, no subscription.</div>
+      <button class="btn btn-ghost" id="saveResultsBtn" type="button" style="margin-top:12px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#fff">Not ready yet? Save my results instead &rarr;</button>
+      <div class="note">Downloads a copy of exactly what you found today, free, no email needed. Nothing here disappears, but nothing reminds you either, so keep it somewhere you'll see it.</div>
+    </div>
+
+    <div class="restart-row"><button id="restartBtn" type="button">&#8634; Start the check again</button></div>
+
+    <div class="disclaimer">This is educational general guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional. It does not detect gas leaks or carbon monoxide and is not a gas safety inspection. If you smell gas or a CO alarm sounds: get fresh air and call your gas emergency or emergency number. Gas safety laws differ between countries, so always check local requirements.</div>
+  </section>
+
+</main>
+
+<script>
+/* ============================================================
+   SET YOUR GUMROAD LINK HERE (one place, used everywhere)
+   ============================================================ */
+const GUMROAD_URL = "https://snagtag.gumroad.com/l/BTS_GasCO_PRO";
+
+const PRODUCTS = {
+  "buyer": {
+    "label": "Pre-Purchase",
+    "ageRange": "Viewing or buying a home",
+    "accent": "#374151",
+    "accentDark": "#2D5B9A",
+    "checks": [
+      {
+        "zone": "Appliances",
+        "verb": "Look",
+        "title": "Do the gas flames you can see burn crisp and blue?",
+        "prompt": "A <strong>lazy yellow or orange flame</strong> is a listed warning sign of an unsafe appliance.",
+        "yes": "Yes, crisp blue",
+        "no": "Yellow, orange, or not seen",
+        "why": "A lazy yellow or orange flame can mean an appliance is not burning properly, which is a warning sign for carbon monoxide.",
+        "how": "With permission, look at the hob burners and any visible flame on a gas fire. Look only. Never adjust or relight an appliance. Note any yellow or floppy flames and ask the seller about them.",
+        "standard": "Gas Safe Register (UK): signs of an unsafe appliance include a lazy yellow flame instead of a crisp blue one, black marks or stains on or around the appliance, a pilot light that keeps going out, and increased condensation inside windows.",
+        "tip": "Take a quick photo of the hob flames. It's easy evidence to share with an engineer.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Flame colour) · Gas Safe Register · Cadent Gas"
+      },
+      {
+        "zone": "Alarms",
+        "verb": "Look up",
+        "title": "Is there a carbon monoxide alarm in the home?",
+        "prompt": "CO has no colour, taste or smell. <strong>An alarm is how you know.</strong>",
+        "yes": "Yes, I saw one",
+        "no": "No, or didn't look",
+        "why": "Carbon monoxide can't be seen or smelled, so an audible CO alarm is a key line of defence.",
+        "how": "Look near fuel-burning appliances and bedrooms for a CO alarm (it's a different device from a smoke alarm, or a combined one). Ask the seller where the CO alarms are and when they need replacing.",
+        "standard": "CDC: install a battery-operated or battery back-up CO detector in your home. Gas Safe Register (UK): fit an audible carbon monoxide alarm.",
+        "tip": "Check the label: combined alarms say 'smoke and CO'. A plain smoke alarm won't detect carbon monoxide.",
+        "src": "Source: Beneath the Surface - Gas & CO, CO Alarm Register · CDC Carbon Monoxide · Gas Safe Register"
+      },
+      {
+        "zone": "Service",
+        "verb": "Ask",
+        "title": "Have the boiler, water heater and other fuel appliances been serviced in the last year?",
+        "prompt": "Fuel-burning appliances need a <strong>yearly service</strong> by a qualified technician.",
+        "yes": "Yes, with records",
+        "no": "Not sure, or no",
+        "why": "Regular servicing helps keep appliances burning safely and spots faults early.",
+        "how": "Ask the seller for the last service date of each gas, oil or coal appliance, who did it, and whether there are records or certificates.",
+        "standard": "CDC: have your heating system, water heater and any other gas, oil or coal burning appliances serviced by a qualified technician every year. Gas Safe Register (UK): have all gas appliances serviced and safety checked every year.",
+        "tip": "Ask for copies by email so they sit with your purchase documents.",
+        "src": "Source: Beneath the Surface - Gas & CO, Service Log · CDC Carbon Monoxide · Gas Safe Register"
+      },
+      {
+        "zone": "Appliances",
+        "verb": "Look",
+        "title": "Are there black marks, soot or stains on or around any appliance?",
+        "prompt": "Soot or staining around an appliance is a <strong>listed warning sign</strong>.",
+        "yes": "No, all clean",
+        "no": "Yes, or didn't look",
+        "why": "Black marks or stains on or around a gas appliance can mean it is not burning properly.",
+        "how": "Look at the boiler casing, water heater, gas fire and the wall or ceiling above each one. Photograph any marks and ask the seller whether the appliance has been checked.",
+        "standard": "Gas Safe Register (UK): signs of an unsafe appliance include a lazy yellow flame instead of a crisp blue one, black marks or stains on or around the appliance, a pilot light that keeps going out, and increased condensation inside windows.",
+        "tip": "Check the wall just above a gas fire. Staining there is easy to miss behind ornaments.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Black marks or soot) · Gas Safe Register · Cadent Gas"
+      },
+      {
+        "zone": "Vents",
+        "verb": "Look",
+        "title": "Are air vents and flue outlets clear of blockages?",
+        "prompt": "Blocked vents and flues can stop <strong>fumes getting out safely</strong>.",
+        "yes": "Yes, all clear",
+        "no": "Blocked, or not checked",
+        "why": "Fuel-burning appliances need their vents and flues to work as designed. Blocked or taped-over vents are a common finding.",
+        "how": "Look at air vents and air bricks indoors and outside flue terminals. Note any that are covered, taped over, blocked by furniture, plants or a new extension. Look only. Don't unblock a vent without advice.",
+        "standard": "CDC: don't burn anything in a stove or fireplace that isn't vented. Checking vents and flue terminals are clear: professional practice.",
+        "tip": "Walk the outside of the house and look for flue outlets behind sheds, plants or new extensions.",
+        "src": "Source: Beneath the Surface - Gas & CO, Appliance Sweep (Vents) · CDC Carbon Monoxide · Professional practice"
+      },
+      {
+        "zone": "Supply",
+        "verb": "Ask",
+        "title": "Do you know where the gas emergency control valve is?",
+        "prompt": "In a gas emergency, the first step is knowing <strong>where to turn it off</strong>.",
+        "yes": "Yes, I've been shown",
+        "no": "Not yet",
+        "why": "If you smell gas, turning off the supply at the emergency control valve is one of the first actions in the guidance.",
+        "how": "Ask the seller to show you the gas meter and emergency control valve. Note where it is and whether the handle is easy to reach.",
+        "standard": "Gas Safe Register (UK): if you smell gas, turn off the gas supply at the emergency control valve (unless the meter is in a basement or cellar), get fresh air, avoid naked flames and electrical switches, and call the gas emergency number.",
+        "tip": "Take a photo of the valve. It's handy to share with everyone who'll live there.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Emergency control valve) · Gas Safe Register"
+      },
+      {
+        "zone": "Chimneys",
+        "verb": "Ask",
+        "title": "Have chimneys and flues been swept and inspected in the last year?",
+        "prompt": "Open fires and stoves need a <strong>yearly professional check</strong>.",
+        "yes": "Yes, with a date",
+        "no": "Not sure, or no",
+        "why": "Chimneys and heating equipment need regular cleaning and inspection to work safely.",
+        "how": "Ask the seller when chimneys and flues were last swept or inspected, and by whom. Note any fireplaces or stoves with no record.",
+        "standard": "US Fire Administration: have heating equipment and chimneys cleaned and inspected each year by a professional.",
+        "tip": "Ask whether every fireplace is in use. Unused ones may still need checking.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Chimneys) · US Fire Administration Heating Fire Safety"
+      },
+      {
+        "zone": "Signs",
+        "verb": "Look",
+        "title": "Is there heavy condensation inside windows in rooms with a fuel appliance?",
+        "prompt": "Increased condensation is one of the <strong>listed warning signs</strong>, though it can have everyday causes too.",
+        "yes": "No, windows clear",
+        "no": "Yes, or not checked",
+        "why": "Increased condensation inside windows is listed among the signs of an unsafe gas appliance. It can also come from cooking, drying clothes or poor ventilation.",
+        "how": "Look at windows in rooms with a boiler, gas fire or cooker. Note heavy condensation and ask when the appliance was last serviced. Record it as an observation, not a diagnosis.",
+        "standard": "Gas Safe Register (UK): signs of an unsafe appliance include a lazy yellow flame instead of a crisp blue one, black marks or stains on or around the appliance, a pilot light that keeps going out, and increased condensation inside windows.",
+        "tip": "Look in the morning if you can. Condensation is easier to spot before windows are opened.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Excess condensation) · Gas Safe Register · Cadent Gas"
+      }
+    ]
+  },
+  "owner": {
+    "label": "Maintenance",
+    "ageRange": "Living in or looking after a home",
+    "accent": "#374151",
+    "accentDark": "#2D5B9A",
+    "checks": [
+      {
+        "zone": "Alarms",
+        "verb": "Think back",
+        "title": "Have you checked your CO alarm battery in the last 6 months?",
+        "prompt": "Checking in <strong>spring and autumn</strong> keeps the alarm ready.",
+        "yes": "Yes, recently",
+        "no": "Not recently",
+        "why": "A CO alarm with a flat battery gives no warning.",
+        "how": "Press the test button and check or replace the battery each spring and autumn. Check the replace-by date on the label and follow the manufacturer's instructions.",
+        "standard": "CDC: check or replace the battery in your CO detector every spring and fall when you change the time on your clocks.",
+        "tip": "Pair it with the clock change, twice a year.",
+        "src": "Source: Beneath the Surface - Gas & CO, CO Alarm Register · CDC Carbon Monoxide"
+      },
+      {
+        "zone": "Service",
+        "verb": "Think back",
+        "title": "Have all your fuel-burning appliances been serviced in the last 12 months?",
+        "prompt": "Boiler, water heater, gas fire, stove: <strong>every one, every year</strong>.",
+        "yes": "Yes, all of them",
+        "no": "Some, or not sure",
+        "why": "Yearly servicing by a qualified technician helps keep appliances burning safely.",
+        "how": "List each gas, oil or coal appliance and its last service date. Book any that are overdue or unknown with a qualified, registered technician.",
+        "standard": "CDC: have your heating system, water heater and any other gas, oil or coal burning appliances serviced by a qualified technician every year. Gas Safe Register (UK): have all gas appliances serviced and safety checked every year.",
+        "tip": "Book the service for the same month each year so it becomes routine.",
+        "src": "Source: Beneath the Surface - Gas & CO, Service Log · CDC Carbon Monoxide · Gas Safe Register"
+      },
+      {
+        "zone": "Symptoms",
+        "verb": "Think",
+        "title": "Does everyone at home know the signs of CO poisoning?",
+        "prompt": "Symptoms can be <strong>mistaken for everyday illness</strong>.",
+        "yes": "Yes, we know them",
+        "no": "Not really",
+        "why": "CO poisoning symptoms can feel like flu or tiredness, so knowing them helps people act quickly.",
+        "how": "Share the symptoms with everyone at home: headaches, dizziness, breathlessness, nausea, collapse and loss of consciousness. If they occur, get fresh air and seek medical help.",
+        "standard": "Gas Safe Register (UK): symptoms of CO poisoning include headaches, dizziness, breathlessness, nausea, collapse and loss of consciousness. CDC: if you suspect CO poisoning, get to fresh air and seek prompt medical attention.",
+        "tip": "Pin the six symptoms somewhere everyone sees, like the fridge door.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (CO symptoms) · Gas Safe Register · CDC Carbon Monoxide"
+      },
+      {
+        "zone": "Emergency",
+        "verb": "Think",
+        "title": "Would everyone know what to do if they smelled gas?",
+        "prompt": "A few simple steps, <strong>in the right order</strong>, make the difference.",
+        "yes": "Yes, we know",
+        "no": "Not sure",
+        "why": "In a gas emergency, the right first actions reduce the chance of ignition and get help quickly.",
+        "how": "Agree the steps: fresh air, open doors and windows, turn off the emergency control valve (unless in a basement or cellar), no naked flames or smoking, don't operate electrical switches, call the gas emergency number.",
+        "standard": "Gas Safe Register (UK): what to do in a gas emergency. Emergency numbers differ by country and supplier, so save yours.",
+        "tip": "Save your local gas emergency number in every phone at home.",
+        "src": "Source: Beneath the Surface - Gas & CO, Safe steps · Gas Safe Register"
+      },
+      {
+        "zone": "Habits",
+        "verb": "Think back",
+        "title": "Do you ever use a generator, barbecue or camp stove indoors or near a window?",
+        "prompt": "Fumes from these can <strong>build up fast</strong> in enclosed spaces.",
+        "yes": "Never, always outside",
+        "no": "Sometimes",
+        "why": "Generators, charcoal grills and camp stoves produce carbon monoxide.",
+        "how": "Only use them outdoors, never in the home, basement or garage, and at least 6 m (20 ft) from any window, door or vent.",
+        "standard": "CDC: never use a generator, pressure washer, or any gasoline-powered engine inside or less than 20 feet from an open window, door or vent. Never use a charcoal grill, hibachi, lantern or portable camping stove inside.",
+        "tip": "Measure 6 m (20 ft) once with a tape so you know the spot.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Generators and grills) · CDC Carbon Monoxide"
+      },
+      {
+        "zone": "Habits",
+        "verb": "Think back",
+        "title": "Is a car or motorbike ever left running in an attached garage?",
+        "prompt": "Even with the door open, <strong>fumes can reach the home</strong>.",
+        "yes": "Never",
+        "no": "Sometimes",
+        "why": "Vehicle exhaust contains carbon monoxide, which can build up in an attached garage and enter the home.",
+        "how": "Never run a car or truck inside an attached garage, even if the door is open. Start it and drive it straight out.",
+        "standard": "CDC: never run a car or truck inside a garage attached to your house, even if you leave the door open.",
+        "tip": "Warm the engine up outside, not in the garage.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Vehicles in garage) · CDC Carbon Monoxide"
+      },
+      {
+        "zone": "Appliances",
+        "verb": "Look",
+        "title": "Do your gas hob flames burn crisp and blue?",
+        "prompt": "A <strong>lazy yellow or orange flame</strong> is a warning sign.",
+        "yes": "Yes, crisp blue",
+        "no": "No, or not sure",
+        "why": "A lazy yellow or orange flame can mean an appliance isn't burning properly.",
+        "how": "Look at each burner when it's lit. If flames are yellow or floppy, or you see soot, stop using it and have it checked by a registered engineer.",
+        "standard": "Gas Safe Register (UK): signs of an unsafe appliance include a lazy yellow flame instead of a crisp blue one, black marks or stains on or around the appliance, a pilot light that keeps going out, and increased condensation inside windows.",
+        "tip": "Check every burner, not just the one you use most.",
+        "src": "Source: Beneath the Surface - Gas & CO, Master Check (Flame colour) · Gas Safe Register · Cadent Gas"
+      },
+      {
+        "zone": "Vents",
+        "verb": "Go check",
+        "title": "Are all air vents and air bricks uncovered?",
+        "prompt": "Vents for fuel appliances are <strong>there for a reason</strong>.",
+        "yes": "Yes, all clear",
+        "no": "Some covered",
+        "why": "Vents covered to stop draughts can stop appliances getting the air they need.",
+        "how": "Look for vents that are taped, blocked by furniture or covered. Don't unblock a vent fitted for an appliance without advice. Ask a registered engineer.",
+        "standard": "Checking vents are clear: professional practice. CDC: don't burn anything in a stove or fireplace that isn't vented.",
+        "tip": "Look behind sofas and curtains. Vents are often hidden there.",
+        "src": "Source: Beneath the Surface - Gas & CO, Appliance Sweep (Vents) · Professional practice · CDC Carbon Monoxide"
+      }
+    ]
+  }
+};
+const BRIDGE_STILL = {
+  "buyer": [
+    "<strong>The full 16-area Appliance Sweep</strong>: meter and valve, boiler, water heater, cooker, fires, stoves, flues, vents, alarms and habits.",
+    "<strong>20 Master Checks</strong>, a CO alarm register, a service log, questions for the seller and a printable report."
+  ],
+  "owner": [
+    "<strong>A CO Alarm Register</strong> that flags overdue battery checks and past replace-by dates, plus a Service Log that flags appliances overdue or with no date.",
+    "<strong>20 Master Checks, a 16-area Appliance Sweep</strong>, 3-photo evidence, 10 cited safe steps and a printable report."
+  ]
+};
+const BEHAVIOUR_FIRST = {
+  "buyer": [0, 1, 2, 3],
+  "owner": [0, 1, 4, 3]
+};
+
+const STORE_KEY = 'snagtag-gas-co-check';
+let state = { idx:0, answers:[], started:false, product:null };
+let CHECKS = [];
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw){ const s = JSON.parse(raw); if(s && Array.isArray(s.answers)) state = s; }
+  }catch(e){}
+  if(state.product && PRODUCTS[state.product]) CHECKS = PRODUCTS[state.product].checks;
+  else state.product = null;
+}
+function saveState(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
+}
+
+function hexToRgbStr(hex){
+  hex = hex.replace('#','');
+  const r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+  return r+','+g+','+b;
+}
+function applyProductTheme(key){
+  const p = PRODUCTS[key];
+  document.documentElement.style.setProperty('--accent', p.accent);
+  document.documentElement.style.setProperty('--accent-dark', p.accentDark);
+  document.documentElement.style.setProperty('--accent-rgb', hexToRgbStr(p.accent));
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('progressWrap').style.display = (id==='screen-check') ? 'block' : 'none';
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+}
+
+document.querySelectorAll('.choose-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const key = card.getAttribute('data-key');
+    state = { idx:0, answers:[], started:true, product:key };
+    CHECKS = PRODUCTS[key].checks;
+    applyProductTheme(key);
+    saveState();
+    renderCheck(); show('screen-check');
+  });
+});
+
+function renderCheck(){
+  const i = state.idx;
+  const c = CHECKS[i];
+  document.getElementById('chkZone').textContent = c.zone;
+  document.getElementById('chkVerb').textContent = c.verb;
+  document.getElementById('chkTitle').textContent = c.title;
+  document.getElementById('chkPrompt').innerHTML = c.prompt;
+  document.getElementById('progressText').textContent = 'Check ' + (i+1) + ' of ' + CHECKS.length;
+  document.getElementById('progressPct').textContent = Math.round(((i)/CHECKS.length)*100) + '%';
+  document.getElementById('progressFill').style.width = ((i)/CHECKS.length*100) + '%';
+
+  const opts = document.getElementById('chkOpts');
+  opts.innerHTML = '';
+  const answered = state.answers[i] !== undefined && state.answers[i] !== null;
+
+  [['yes', c.yes, true], ['no', c.no, false]].forEach(([key,label,isSafe])=>{
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.setAttribute('role','button');
+    div.setAttribute('tabindex','0');
+    const isSelected = answered && state.answers[i] === isSafe;
+    div.innerHTML = '<span class="ic">'+(isSelected ? '✓' : '')+'</span><span>'+label+'</span>';
+    if(isSelected) div.classList.add('selected', isSafe ? 'safe':'flag');
+    const pick = ()=>{
+      state.answers[i] = isSafe;
+      saveState();
+      renderCheck();
+      applyReveal(c, isSafe);
+      document.getElementById('chkNavRow').style.display = 'flex';
+      document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+    };
+    div.addEventListener('click', pick);
+    div.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
+    opts.appendChild(div);
+  });
+
+  const rv = document.getElementById('chkReveal');
+  if(answered){
+    applyReveal(c, state.answers[i]);
+    document.getElementById('chkNavRow').style.display = 'flex';
+    document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+  } else {
+    rv.classList.remove('show');
+    document.getElementById('chkNavRow').style.display = 'none';
+  }
+  document.getElementById('chkBackBtn').style.visibility = (i===0) ? 'hidden' : 'visible';
+}
+
+function applyReveal(c, isSafe){
+  const rv = document.getElementById('chkReveal');
+  rv.classList.add('show');
+  rv.classList.toggle('good', !!isSafe);
+  rv.classList.toggle('bad', !isSafe);
+  const kicker = document.getElementById('revealKicker');
+  const line1 = document.getElementById('revealWhy');
+  const line2 = document.getElementById('revealHow');
+  if(isSafe){
+    kicker.textContent = '✓ Good - that\'s sorted';
+    line1.textContent = 'That matches the guidance: ' + c.standard;
+    line2.textContent = c.tip;
+  } else {
+    kicker.textContent = '⚠ Worth fixing - here\'s why';
+    line1.textContent = c.why;
+    line2.textContent = c.how;
+  }
+  document.getElementById('revealSrc').textContent = c.src;
+}
+
+document.getElementById('chkNextBtn').addEventListener('click', ()=>{
+  if(state.idx < CHECKS.length-1){
+    state.idx++; saveState(); renderCheck(); show('screen-check');
+  } else {
+    document.getElementById('progressFill').style.width = '100%';
+    renderResult(); show('screen-result');
+  }
+});
+document.getElementById('chkBackBtn').addEventListener('click', ()=>{
+  if(state.idx>0){ state.idx--; saveState(); renderCheck(); show('screen-check'); }
+});
+document.getElementById('chkChooseBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null };
+  saveState();
+  show('screen-choose');
+});
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+document.getElementById('restartBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+
+function escHtml(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+
+document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
+  const p = PRODUCTS[state.product];
+  const safeItems = CHECKS.filter((c,i)=>state.answers[i]===true);
+  const flagItems = CHECKS.filter((c,i)=>state.answers[i]===false);
+  const dateStr = new Date().toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
+  const rowsFlag = flagItems.map(c=>'<div class="row flag"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.how)+'</span><em>'+escHtml(c.src)+'</em></div>').join('') || '<p style="color:#6B7A93">Nothing flagged - every check today was already sorted.</p>';
+  const rowsSafe = safeItems.map(c=>'<div class="row safe"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.tip)+'</span></div>').join('') || '<p style="color:#6B7A93">Nothing marked sorted yet.</p>';
+  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My Gas and Carbon Monoxide Check - '+dateStr+'</title>'
+    + '<style>body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#F7FAFD;color:#16243F;max-width:640px;margin:0 auto;padding:32px 20px;line-height:1.6}'
+    + 'h1{font-size:1.5rem;margin:0 0 4px}p.sub{color:#6B7A93;margin:0 0 26px;font-size:14px}'
+    + 'h2{font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7A93;margin:26px 0 10px}'
+    + '.row{border-left:4px solid '+p.accent+';background:#fff;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:10px}'
+    + '.row.safe{border-left-color:#2E7D4F}.row.flag{border-left-color:#A15C00}'
+    + '.row strong{display:block;font-size:14.5px;margin-bottom:3px}.row span{font-size:13.5px;color:#44546F;display:block}.row em{font-size:12px;color:#6B7A93;display:block;margin-top:4px}'
+    + '.cta{display:inline-block;margin-top:22px;background:linear-gradient(135deg,'+p.accent+','+p.accentDark+');color:#fff;font-weight:700;padding:13px 20px;border-radius:10px;text-decoration:none}'
+    + 'footer{margin-top:30px;padding-top:16px;border-top:1px solid #C9D6E8;font-size:11.5px;color:#6B7A93}</style></head><body>'
+    + '<h1>My Gas &amp; Carbon Monoxide Check: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
+    + '<h2>Check today</h2>' + rowsFlag
+    + '<h2>Already sorted</h2>' + rowsSafe
+    + '<a class="cta" href="'+GUMROAD_URL+'" target="_blank" rel="noopener">Get the complete Gas &amp; Carbon Monoxide tool &rarr;</a>'
+    + '<footer>Educational general guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional. Not a gas safety inspection. Saved locally to your device; nothing was sent anywhere.</footer>'
+    + '</body></html>';
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'gas-co-check-' + state.product + '-results.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+});
+
+function renderResult(){
+  const p = PRODUCTS[state.product];
+  const total = CHECKS.length;
+  const safeCount = state.answers.filter(a=>a===true).length;
+  const flagCount = state.answers.filter(a=>a===false).length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statSafe').textContent = safeCount;
+  document.getElementById('statFlag').textContent = flagCount;
+
+  document.getElementById('resultHeadline').textContent =
+    flagCount === 0 ? total + ' for ' + total + ' - genuinely well done' :
+    flagCount <= 2 ? 'Close. A couple of things to look at' :
+    'You just found real gaps';
+
+  const zones = {};
+  CHECKS.forEach((c,i)=>{
+    if(!zones[c.zone]) zones[c.zone] = {safe:0,total:0};
+    zones[c.zone].total++;
+    if(state.answers[i]===true) zones[c.zone].safe++;
+  });
+  const zb = document.getElementById('zoneBars');
+  zb.innerHTML = '';
+  Object.keys(zones).forEach(z=>{
+    const d = zones[z];
+    const pct = Math.round((d.safe/d.total)*100);
+    const row = document.createElement('div');
+    row.className = 'zbar-row';
+    row.innerHTML = '<div class="zbar-label">'+z+'</div><div class="zbar-track"><div class="zbar-fill'+(pct<100?' partial':'')+'" style="width:'+pct+'%"></div></div><div class="zbar-count">'+d.safe+'/'+d.total+'</div>';
+    zb.appendChild(row);
+  });
+
+  const flagWrap = document.getElementById('findingsFlag');
+  const safeWrap = document.getElementById('findingsSafe');
+  flagWrap.innerHTML = ''; safeWrap.innerHTML = '';
+  if(flagCount===0){
+    flagWrap.innerHTML = '<p style="font-size:14px;color:var(--ink-soft)">Nothing flagged today - see the sorted list below.</p>';
+  }
+  CHECKS.forEach((c,i)=>{
+    const isSafe = state.answers[i]===true;
+    const div = document.createElement('div');
+    div.className = 'finding ' + (isSafe?'safe':'flag');
+    div.innerHTML = '<div class="fic">'+(isSafe?'✓':'!')+'</div><div><div class="ft">'+c.title.replace(/\?$/,'')+'</div><div class="fd">'+(isSafe? 'Sorted - keep it that way.' : c.how)+'</div></div>';
+    (isSafe ? safeWrap : flagWrap).appendChild(div);
+  });
+
+  const behaviourFirst = BEHAVIOUR_FIRST[state.product] || [];
+  let qwIndex = behaviourFirst.find(i => state.answers[i]===false);
+  if(qwIndex === undefined) qwIndex = CHECKS.findIndex((c,i)=>state.answers[i]===false);
+  if(qwIndex === undefined || qwIndex === -1) qwIndex = 1;
+  const qw = CHECKS[qwIndex];
+  document.getElementById('qwTitle').textContent = qw.title.replace(/\?$/,'');
+  document.getElementById('qwBody').textContent = qw.how;
+
+  const bridgeBody = flagCount === 0
+    ? 'You\'re sorted on all ' + total + ' of today\'s checks. The full Beneath the Surface Gas & Carbon Monoxide tool goes much further: a 16-area appliance sweep, a CO alarm register, a service log, a findings register with photo evidence and a printable report.'
+    : 'Today\'s check found ' + flagCount + ' of the most commonly missed gas and CO safety gaps. The full Beneath the Surface Gas & Carbon Monoxide tool helps you track every CO alarm, log yearly servicing, and record each warning sign until an engineer has checked it.';
+  document.getElementById('bridgeBody').textContent = bridgeBody;
+
+  const stillItems = BRIDGE_STILL[state.product] || [];
+  document.getElementById('bridgeStillList').innerHTML = stillItems.map(li=>'<li>'+li+'</li>').join('');
+
+  document.getElementById('proBtn').href = GUMROAD_URL;
+  document.getElementById('proBtn').textContent = 'Get the Gas & Carbon Monoxide tool →';
+}
+
+function applyMode(m){
+  document.body.setAttribute('data-mode', m);
+  document.getElementById('modeToggle').textContent = m==='dark' ? '☀️' : '🌙';
+  try{ localStorage.setItem(STORE_KEY+'-mode', m); }catch(e){}
+}
+document.getElementById('modeToggle').addEventListener('click', ()=>{
+  applyMode(document.body.getAttribute('data-mode')==='dark' ? 'light' : 'dark');
+});
+(function initMode(){
+  let m = 'light';
+  try{ m = localStorage.getItem(STORE_KEY+'-mode') || 'light'; }catch(e){}
+  applyMode(m);
+})();
+
+loadState();
+if(state.product) applyProductTheme(state.product);
+if(state.started && state.product && state.idx < CHECKS.length && !(state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null))){
+  renderCheck(); show('screen-check');
+} else if(state.started && state.product && state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null)){
+  renderResult(); show('screen-result');
+} else if(state.started && !state.product){
+  show('screen-choose');
+}
+</script>
+</body>
+</html>
